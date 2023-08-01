@@ -8,6 +8,7 @@ const register = async (req, res) => {
           .status(400)
           .json({ error: "Fill required fields", success: false });
     }
+    
     const userExist = await User.findOne({ roll: roll });
     const userExistPhone = await User.findOne({ phone: phone });
     if (userExist || userExistPhone) {

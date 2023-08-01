@@ -13,13 +13,13 @@ require('./database/connectDatabase')
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api",router);
-=======
 app.get("/events", async(res, req) => {
     try{
         const events = await Event.find({});
         res.json(events);
     }
     catch(error){
+        console.error("error fetching events:", error)
         res.status(500).json({ error: "Internal server error"});
     }
 });
